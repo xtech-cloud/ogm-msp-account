@@ -10,7 +10,7 @@ service Profile{
 }
 
 message QueryProfileRequest { 
-    string uuid =  1;
+    string accessToken =  1;
 }
 
 message QueryProfileResponse{ 
@@ -19,12 +19,11 @@ message QueryProfileResponse{
 }
 
 message UpdateProfileRequest { 
-    string uuid =  1;
+    string accessToken =  1;
     string profile = 2;
 }
 
 message UpdateProfileResponse{ 
     Status status = 1;
-    string message  = 2;
 }
 

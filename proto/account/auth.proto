@@ -38,7 +38,7 @@ message SigninResponse{
 }
 
 message SignoutRequest { 
-    string uuid =  1;
+    string accessToken =  1;
 }
 
 message SignoutResponse{ 
@@ -46,7 +46,7 @@ message SignoutResponse{
 }
 
 message ResetPasswdRequest { 
-    string uuid =  1;
+    string accessToken =  1;
     string password = 2;
 }
 
