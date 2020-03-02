@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "proto/account/shared.proto";
+
+package account;
+
+service Profile{
+  rpc Query(QueryProfileRequest) returns (QueryProfileResponse) {}
+  rpc Update(UpdateProfileRequest) returns (UpdateProfileResponse) {}
+}
+
+message QueryProfileRequest { 
+    string uuid =  1;
+}
+
+message QueryProfileResponse{ 
+    Status status = 1;
+    string profile = 2;
+}
+
+message UpdateProfileRequest { 
+    string uuid =  1;
+    string profile = 2;
+}
+
+message UpdateProfileResponse{ 
+    Status status = 1;
+    string message  = 2;
+}
+

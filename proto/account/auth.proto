@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "proto/account/shared.proto";
+
+package account;
+
+service Auth{
+  rpc Signup(SignupRequest) returns (SignupResponse) {}
+  rpc Signin(SigninRequest) returns (SigninResponse) {}
+  rpc Signout(SignoutRequest) returns (SignoutResponse) {}
+  rpc ResetPasswd(ResetPasswdRequest) returns (ResetPasswdResponse) {}
+}
+
+message SignupRequest { 
+    string username =  1;
+    string password = 2;
+}
+
+message SignupResponse{ 
+    Status status = 1;
+    string uuid =  2;
+}
+
+enum Strategy {
+    NONE = 0;
+    JWT = 1;
+}
+
+message SigninRequest { 
+    Strategy strategy =  1;
+    string username =  2;
+    string password = 3;
+}
+
+message SigninResponse{ 
+    Status status = 1;
+    string accessToken =  2;
+}
+
+message SignoutRequest { 
+    string uuid =  1;
+}
+
+message SignoutResponse{ 
+    Status status = 1;
+}
+
+message ResetPasswdRequest { 
+    string uuid =  1;
+    string password = 2;
+}
+
+message ResetPasswdResponse{ 
+    Status status = 1;
+}
