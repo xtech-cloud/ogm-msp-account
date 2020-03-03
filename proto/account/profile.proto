@@ -10,7 +10,8 @@ service Profile{
 }
 
 message QueryProfileRequest { 
-    string accessToken =  1;
+    Strategy strategy =  1;
+    string accessToken =  2;
 }
 
 message QueryProfileResponse{ 
@@ -19,8 +20,9 @@ message QueryProfileResponse{
 }
 
 message UpdateProfileRequest { 
-    string accessToken =  1;
-    string profile = 2;
+    Strategy strategy =  1;
+    string accessToken =  2;
+    string profile = 3;
 }
 
 message UpdateProfileResponse{ 

@@ -21,11 +21,6 @@ message SignupResponse{
     string uuid =  2;
 }
 
-enum Strategy {
-    NONE = 0;
-    JWT = 1;
-}
-
 message SigninRequest { 
     Strategy strategy =  1;
     string username =  2;
@@ -38,7 +33,8 @@ message SigninResponse{
 }
 
 message SignoutRequest { 
-    string accessToken =  1;
+    Strategy strategy =  1;
+    string accessToken =  2;
 }
 
 message SignoutResponse{ 
@@ -46,8 +42,9 @@ message SignoutResponse{
 }
 
 message ResetPasswdRequest { 
-    string accessToken =  1;
-    string password = 2;
+    Strategy strategy =  1;
+    string accessToken =  2;
+    string password = 3;
 }
 
 message ResetPasswdResponse{ 

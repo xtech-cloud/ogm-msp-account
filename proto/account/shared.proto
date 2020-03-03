@@ -6,3 +6,8 @@ message Status {
     int32 code = 1;  
     string message = 2;
 }
+
+enum Strategy {
+    NONE = 0;
+    JWT = 1;
+}
