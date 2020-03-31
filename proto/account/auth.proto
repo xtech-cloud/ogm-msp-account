@@ -29,7 +29,8 @@ message SigninRequest {
 
 message SigninResponse{ 
     Status status = 1;
-    string accessToken =  2;
+    string uuid =  2;
+    string accessToken = 3;
 }
 
 message SignoutRequest { 
