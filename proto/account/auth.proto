@@ -4,50 +4,63 @@ import "proto/account/shared.proto";
 
 package account;
 
-service Auth{
+// 验证
+service Auth {
+  // 注册
   rpc Signup(SignupRequest) returns (SignupResponse) {}
+  // 登录
   rpc Signin(SigninRequest) returns (SigninResponse) {}
+  // 登出
   rpc Signout(SignoutRequest) returns (SignoutResponse) {}
+  // 重置密码
   rpc ResetPasswd(ResetPasswdRequest) returns (ResetPasswdResponse) {}
 }
 
-message SignupRequest { 
-    string username =  1;
-    string password = 2;
+// 注册的请求
+message SignupRequest {
+  string username = 1; // 用户名
+  string password = 2; // 密码
 }
 
-message SignupResponse{ 
-    Status status = 1;
-    string uuid =  2;
+// 注册的回复
+message SignupResponse {
+  Status status = 1; // 状态
+  string uuid = 2;   // 账户唯一识别码
 }
 
-message SigninRequest { 
-    Strategy strategy =  1;
-    string username =  2;
-    string password = 3;
+// 登录的请求
+message SigninRequest {
+  Strategy strategy = 1; // 策略
+  string username = 2;   // 用户名
+  string password = 3;   // 密码
 }
 
-message SigninResponse{ 
-    Status status = 1;
-    string uuid =  2;
-    string accessToken = 3;
+// 登录的回复
+message SigninResponse {
+  Status status = 1;      // 状态
+  string uuid = 2;        // 账号唯一识别码
+  string accessToken = 3; // 访问令牌
 }
 
-message SignoutRequest { 
-    Strategy strategy =  1;
-    string accessToken =  2;
+// 登出的请求
+message SignoutRequest {
+  Strategy strategy = 1;  // 策略
+  string accessToken = 2; // 访问令牌
 }
 
-message SignoutResponse{ 
-    Status status = 1;
+// 登出的回复
+message SignoutResponse {
+  Status status = 1; // 状态
 }
 
-message ResetPasswdRequest { 
-    Strategy strategy =  1;
-    string accessToken =  2;
-    string password = 3;
+// 重置密码的请求
+message ResetPasswdRequest {
+  Strategy strategy = 1;  // 策略
+  string accessToken = 2; // 访问令牌
+  string password = 3;    // 密码
 }
 
-message ResetPasswdResponse{ 
-    Status status = 1;
+// 重置密码的回复
+message ResetPasswdResponse {
+  Status status = 1; // 状态
 }

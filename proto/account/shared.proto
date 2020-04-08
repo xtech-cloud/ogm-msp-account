@@ -2,12 +2,14 @@ syntax = "proto3";
 
 package account;
 
+// 状态
 message Status {
-    int32 code = 1;  
-    string message = 2;
+  int32 code = 1;     // 状态码
+  string message = 2; // 状态信息
 }
 
+// 策略
 enum Strategy {
-    NONE = 0;
-    JWT = 1;
+  NONE = 0; // 无
+  JWT = 1;  // JWT
 }
