@@ -34,7 +34,9 @@ var _ server.Option
 // Client API for Profile service
 
 type ProfileService interface {
+	// 获取
 	Query(ctx context.Context, in *QueryProfileRequest, opts ...client.CallOption) (*QueryProfileResponse, error)
+	// 更新
 	Update(ctx context.Context, in *UpdateProfileRequest, opts ...client.CallOption) (*UpdateProfileResponse, error)
 }
 
@@ -73,7 +75,9 @@ func (c *profileService) Update(ctx context.Context, in *UpdateProfileRequest, o
 // Server API for Profile service
 
 type ProfileHandler interface {
+	// 获取
 	Query(context.Context, *QueryProfileRequest, *QueryProfileResponse) error
+	// 更新
 	Update(context.Context, *UpdateProfileRequest, *UpdateProfileResponse) error
 }
 

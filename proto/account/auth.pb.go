@@ -20,6 +20,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// 注册的请求
 type SignupRequest struct {
 	Username             string   `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
 	Password             string   `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
@@ -67,6 +68,7 @@ func (m *SignupRequest) GetPassword() string {
 	return ""
 }
 
+// 注册的回复
 type SignupResponse struct {
 	Status               *Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	Uuid                 string   `protobuf:"bytes,2,opt,name=uuid,proto3" json:"uuid,omitempty"`
@@ -114,6 +116,7 @@ func (m *SignupResponse) GetUuid() string {
 	return ""
 }
 
+// 登录的请求
 type SigninRequest struct {
 	Strategy             Strategy `protobuf:"varint,1,opt,name=strategy,proto3,enum=account.Strategy" json:"strategy,omitempty"`
 	Username             string   `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
@@ -169,6 +172,7 @@ func (m *SigninRequest) GetPassword() string {
 	return ""
 }
 
+// 登录的回复
 type SigninResponse struct {
 	Status               *Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	Uuid                 string   `protobuf:"bytes,2,opt,name=uuid,proto3" json:"uuid,omitempty"`
@@ -224,6 +228,7 @@ func (m *SigninResponse) GetAccessToken() string {
 	return ""
 }
 
+// 登出的请求
 type SignoutRequest struct {
 	Strategy             Strategy `protobuf:"varint,1,opt,name=strategy,proto3,enum=account.Strategy" json:"strategy,omitempty"`
 	AccessToken          string   `protobuf:"bytes,2,opt,name=accessToken,proto3" json:"accessToken,omitempty"`
@@ -271,6 +276,7 @@ func (m *SignoutRequest) GetAccessToken() string {
 	return ""
 }
 
+// 登出的回复
 type SignoutResponse struct {
 	Status               *Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -310,6 +316,7 @@ func (m *SignoutResponse) GetStatus() *Status {
 	return nil
 }
 
+// 重置密码的请求
 type ResetPasswdRequest struct {
 	Strategy             Strategy `protobuf:"varint,1,opt,name=strategy,proto3,enum=account.Strategy" json:"strategy,omitempty"`
 	AccessToken          string   `protobuf:"bytes,2,opt,name=accessToken,proto3" json:"accessToken,omitempty"`
@@ -365,6 +372,7 @@ func (m *ResetPasswdRequest) GetPassword() string {
 	return ""
 }
 
+// 重置密码的回复
 type ResetPasswdResponse struct {
 	Status               *Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`

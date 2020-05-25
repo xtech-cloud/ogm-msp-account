@@ -34,9 +34,13 @@ var _ server.Option
 // Client API for Auth service
 
 type AuthService interface {
+	// 注册
 	Signup(ctx context.Context, in *SignupRequest, opts ...client.CallOption) (*SignupResponse, error)
+	// 登录
 	Signin(ctx context.Context, in *SigninRequest, opts ...client.CallOption) (*SigninResponse, error)
+	// 登出
 	Signout(ctx context.Context, in *SignoutRequest, opts ...client.CallOption) (*SignoutResponse, error)
+	// 重置密码
 	ResetPasswd(ctx context.Context, in *ResetPasswdRequest, opts ...client.CallOption) (*ResetPasswdResponse, error)
 }
 
@@ -95,9 +99,13 @@ func (c *authService) ResetPasswd(ctx context.Context, in *ResetPasswdRequest, o
 // Server API for Auth service
 
 type AuthHandler interface {
+	// 注册
 	Signup(context.Context, *SignupRequest, *SignupResponse) error
+	// 登录
 	Signin(context.Context, *SigninRequest, *SigninResponse) error
+	// 登出
 	Signout(context.Context, *SignoutRequest, *SignoutResponse) error
+	// 重置密码
 	ResetPasswd(context.Context, *ResetPasswdRequest, *ResetPasswdResponse) error
 }
 

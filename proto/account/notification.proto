@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package account;
+
+// 通知
+message Notification {
+  string action = 1; // 行为
+  string head = 2;   // 头
+  string body = 3;   // 正文
+}

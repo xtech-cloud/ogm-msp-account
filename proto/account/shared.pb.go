@@ -20,6 +20,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// 策略
 type Strategy int32
 
 const (
@@ -45,6 +46,7 @@ func (Strategy) EnumDescriptor() ([]byte, []int) {
 	return fileDescriptor_49158a9607562c1b, []int{0}
 }
 
+// 状态
 type Status struct {
 	Code                 int32    `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
 	Message              string   `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`

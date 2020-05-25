@@ -20,6 +20,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+// 获取个人资料的请求
 type QueryProfileRequest struct {
 	Strategy             Strategy `protobuf:"varint,1,opt,name=strategy,proto3,enum=account.Strategy" json:"strategy,omitempty"`
 	AccessToken          string   `protobuf:"bytes,2,opt,name=accessToken,proto3" json:"accessToken,omitempty"`
@@ -67,6 +68,7 @@ func (m *QueryProfileRequest) GetAccessToken() string {
 	return ""
 }
 
+// 获取个人资料的回复
 type QueryProfileResponse struct {
 	Status               *Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	Profile              string   `protobuf:"bytes,2,opt,name=profile,proto3" json:"profile,omitempty"`
@@ -114,6 +116,7 @@ func (m *QueryProfileResponse) GetProfile() string {
 	return ""
 }
 
+// 更新个人资料的请求
 type UpdateProfileRequest struct {
 	Strategy             Strategy `protobuf:"varint,1,opt,name=strategy,proto3,enum=account.Strategy" json:"strategy,omitempty"`
 	AccessToken          string   `protobuf:"bytes,2,opt,name=accessToken,proto3" json:"accessToken,omitempty"`
@@ -169,6 +172,7 @@ func (m *UpdateProfileRequest) GetProfile() string {
 	return ""
 }
 
+// 更新个人资料的回复
 type UpdateProfileResponse struct {
 	Status               *Status  `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
