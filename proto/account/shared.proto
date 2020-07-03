@@ -14,11 +14,11 @@ enum Strategy {
   JWT = 1;  // JWT
 }
 
-// 账号
-message Account {
-  string username = 1;  // 用户名
-  string uuid = 2;      // 唯一识别标识
-  string profile = 3;   // 个人资料
-  string createdAt = 4; // 创建时间
-  string updatedAt = 5; // 修改时间
+// 账号实体
+message AccountEntity {
+  string username = 1; // 用户名
+  string uuid = 2;     // 唯一识别标识
+  string profile = 3;  // 个人资料
+  int64 createdAt = 4; // 创建时间
+  int64 updatedAt = 5; // 修改时间
 }

@@ -18,7 +18,7 @@ message QueryListRequest {
 
 // 列举的回复
 message QueryListResponse {
-  Status status = 1;            // 状态
-  int64 total = 2;              // 总数
-  repeated Account account = 3; // 账号列表
+  Status status = 1;                  // 状态
+  int64 total = 2;                    // 总数
+  repeated AccountEntity account = 3; // 账号列表
 }
