@@ -13,3 +13,12 @@ enum Strategy {
   NONE = 0; // 无
   JWT = 1;  // JWT
 }
+
+// 账号
+message Account {
+  string username = 1;  // 用户名
+  string uuid = 2;      // 唯一识别标识
+  string profile = 3;   // 个人资料
+  string createdAt = 4; // 创建时间
+  string updatedAt = 5; // 修改时间
+}
