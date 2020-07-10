@@ -27,13 +27,8 @@ message QueryListResponse {
 
 // 查询个体的请求
 message QuerySingleRequest {
-  enum Field {
-    NONE = 0;
-    UUID = 1;
-    USERNAME = 2;
-  }
-  Field filed = 1;  // 字段
-  string value = 2; // 值
+  QueryField field = 1; // 字段
+  string value = 2;     // 值
 }
 
 // 查询列表的回复

@@ -10,8 +10,15 @@ message Status {
 
 // 策略
 enum Strategy {
-  NONE = 0; // 无
-  JWT = 1;  // JWT
+  STRATEGY_NONE = 0; // 无
+  STRATEGY_JWT = 1;  // JWT
+}
+
+// 查询字段
+enum QueryField {
+  QUERY_FIELD_NONE = 0;     //无
+  QUERY_FILED_UUID = 1;     // UUID
+  QUERY_FIELD_USERNAME = 2; // Username
 }
 
 // 账号实体

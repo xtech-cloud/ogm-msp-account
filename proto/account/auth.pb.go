@@ -155,7 +155,7 @@ func (m *SigninRequest) GetStrategy() Strategy {
 	if m != nil {
 		return m.Strategy
 	}
-	return Strategy_NONE
+	return Strategy_STRATEGY_NONE
 }
 
 func (m *SigninRequest) GetUsername() string {
@@ -266,7 +266,7 @@ func (m *SignoutRequest) GetStrategy() Strategy {
 	if m != nil {
 		return m.Strategy
 	}
-	return Strategy_NONE
+	return Strategy_STRATEGY_NONE
 }
 
 func (m *SignoutRequest) GetAccessToken() string {
@@ -355,7 +355,7 @@ func (m *ResetPasswdRequest) GetStrategy() Strategy {
 	if m != nil {
 		return m.Strategy
 	}
-	return Strategy_NONE
+	return Strategy_STRATEGY_NONE
 }
 
 func (m *ResetPasswdRequest) GetAccessToken() string {

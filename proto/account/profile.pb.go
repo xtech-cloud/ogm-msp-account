@@ -58,7 +58,7 @@ func (m *QueryProfileRequest) GetStrategy() Strategy {
 	if m != nil {
 		return m.Strategy
 	}
-	return Strategy_NONE
+	return Strategy_STRATEGY_NONE
 }
 
 func (m *QueryProfileRequest) GetAccessToken() string {
@@ -155,7 +155,7 @@ func (m *UpdateProfileRequest) GetStrategy() Strategy {
 	if m != nil {
 		return m.Strategy
 	}
-	return Strategy_NONE
+	return Strategy_STRATEGY_NONE
 }
 
 func (m *UpdateProfileRequest) GetAccessToken() string {
