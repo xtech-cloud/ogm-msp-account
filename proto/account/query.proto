@@ -6,19 +6,33 @@ package account;
 
 // 查询
 service Query {
-  // 列举
+  // 列表
   rpc List(QueryListRequest) returns (QueryListResponse) {}
+  // 个体
+  rpc Single(QuerySingleRequest) returns (QuerySingleResponse) {}
 }
 
-// 列举的请求
+// 查询列表的请求
 message QueryListRequest {
   int64 offset = 1; // 偏移值
   int64 count = 2;  // 数量
 }
 
-// 列举的回复
+// 查询列表的回复
 message QueryListResponse {
   Status status = 1;                  // 状态
   int64 total = 2;                    // 总数
   repeated AccountEntity account = 3; // 账号列表
+}
+
+// 查询个体的请求
+message QuerySingleRequest {
+  string username = 1; // 用户名
+  string uuid = 2;     // 唯一标识码
+}
+
+// 查询列表的回复
+message QuerySingleResponse {
+  Status status = 1;         // 状态
+  AccountEntity account = 2; // 账号
 }

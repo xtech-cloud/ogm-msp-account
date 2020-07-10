@@ -34,8 +34,10 @@ var _ server.Option
 // Client API for Query service
 
 type QueryService interface {
-	// 列举
+	// 列表
 	List(ctx context.Context, in *QueryListRequest, opts ...client.CallOption) (*QueryListResponse, error)
+	// 个体
+	Single(ctx context.Context, in *QuerySingleRequest, opts ...client.CallOption) (*QuerySingleResponse, error)
 }
 
 type queryService struct {
@@ -60,16 +62,29 @@ func (c *queryService) List(ctx context.Context, in *QueryListRequest, opts ...c
 	return out, nil
 }
 
+func (c *queryService) Single(ctx context.Context, in *QuerySingleRequest, opts ...client.CallOption) (*QuerySingleResponse, error) {
+	req := c.c.NewRequest(c.name, "Query.Single", in)
+	out := new(QuerySingleResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for Query service
 
 type QueryHandler interface {
-	// 列举
+	// 列表
 	List(context.Context, *QueryListRequest, *QueryListResponse) error
+	// 个体
+	Single(context.Context, *QuerySingleRequest, *QuerySingleResponse) error
 }
 
 func RegisterQueryHandler(s server.Server, hdlr QueryHandler, opts ...server.HandlerOption) error {
 	type query interface {
 		List(ctx context.Context, in *QueryListRequest, out *QueryListResponse) error
+		Single(ctx context.Context, in *QuerySingleRequest, out *QuerySingleResponse) error
 	}
 	type Query struct {
 		query
@@ -84,4 +99,8 @@ type queryHandler struct {
 
 func (h *queryHandler) List(ctx context.Context, in *QueryListRequest, out *QueryListResponse) error {
 	return h.QueryHandler.List(ctx, in, out)
+}
+
+func (h *queryHandler) Single(ctx context.Context, in *QuerySingleRequest, out *QuerySingleResponse) error {
+	return h.QueryHandler.Single(ctx, in, out)
 }
