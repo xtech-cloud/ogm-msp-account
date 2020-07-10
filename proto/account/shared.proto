@@ -17,7 +17,7 @@ enum Strategy {
 // 查询字段
 enum QueryField {
   QUERY_FIELD_NONE = 0;     //无
-  QUERY_FILED_UUID = 1;     // UUID
+  QUERY_FIELD_UUID = 1;     // UUID
   QUERY_FIELD_USERNAME = 2; // Username
 }
 
