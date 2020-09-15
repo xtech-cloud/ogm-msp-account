@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "proto/account/shared.proto";
 
-package omo.msa.account;
+package account;
 
 // 查询
 service Query {

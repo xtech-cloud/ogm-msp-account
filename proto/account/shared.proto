@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package omo.msa.account;
+package account;
 
 // 状态
 message Status {
