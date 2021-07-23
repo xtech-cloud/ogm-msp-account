@@ -2,36 +2,42 @@ syntax = "proto3";
 
 import "proto/account/shared.proto";
 
-package account;
+//package account;
+option go_package = "proto/account;account";
 
 // 个人资料
-service Profile {
-  // 获取
-  rpc Query(QueryProfileRequest) returns (QueryProfileResponse) {}
-  // 更新
-  rpc Update(UpdateProfileRequest) returns (UpdateProfileResponse) {}
+service Profile
+{
+    // 获取
+    rpc Query(QueryProfileRequest) returns (QueryProfileResponse) { }
+    // 更新
+    rpc Update(UpdateProfileRequest) returns (UpdateProfileResponse) { }
 }
 
 // 获取个人资料的请求
-message QueryProfileRequest {
-  Strategy strategy = 1;  // 策略
-  string accessToken = 2; // 访问令牌
+message QueryProfileRequest
+{
+    Strategy strategy = 1;  // 策略
+    string accessToken = 2; // 访问令牌
 }
 
 // 获取个人资料的回复
-message QueryProfileResponse {
-  Status status = 1;  // 状态
-  string profile = 2; // 个人资料
+message QueryProfileResponse
+{
+    Status status = 1;  // 状态
+    string profile = 2; // 个人资料
 }
 
 // 更新个人资料的请求
-message UpdateProfileRequest {
-  Strategy strategy = 1;  // 策略
-  string accessToken = 2; // 访问令牌
-  string profile = 3;     // 个人资料
+message UpdateProfileRequest
+{
+    Strategy strategy = 1;  // 策略
+    string accessToken = 2; // 访问令牌
+    string profile = 3;     // 个人资料
 }
 
 // 更新个人资料的回复
-message UpdateProfileResponse {
-  Status status = 1; // 状态
+message UpdateProfileResponse
+{
+    Status status = 1; // 状态
 }

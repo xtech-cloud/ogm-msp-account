@@ -2,37 +2,43 @@ syntax = "proto3";
 
 import "proto/account/shared.proto";
 
-package account;
+//package account;
+option go_package = "proto/account;account";
 
 // 查询
-service Query {
-  // 列表
-  rpc List(QueryListRequest) returns (QueryListResponse) {}
-  // 个体
-  rpc Single(QuerySingleRequest) returns (QuerySingleResponse) {}
+service Query
+{
+    // 列表
+    rpc List(QueryListRequest) returns (QueryListResponse) { }
+    // 个体
+    rpc Single(QuerySingleRequest) returns (QuerySingleResponse) { }
 }
 
 // 查询列表的请求
-message QueryListRequest {
-  int64 offset = 1; // 偏移值
-  int64 count = 2;  // 数量
+message QueryListRequest
+{
+    int64 offset = 1; // 偏移值
+    int64 count = 2;  // 数量
 }
 
 // 查询列表的回复
-message QueryListResponse {
-  Status status = 1;                  // 状态
-  int64 total = 2;                    // 总数
-  repeated AccountEntity account = 3; // 账号列表
+message QueryListResponse
+{
+    Status status = 1;                  // 状态
+    int64 total = 2;                    // 总数
+    repeated AccountEntity account = 3; // 账号列表
 }
 
 // 查询个体的请求
-message QuerySingleRequest {
-  QueryField field = 1; // 字段
-  string value = 2;     // 值
+message QuerySingleRequest
+{
+    QueryField field = 1; // 字段
+    string value = 2;     // 值
 }
 
 // 查询列表的回复
-message QuerySingleResponse {
-  Status status = 1;         // 状态
-  AccountEntity account = 2; // 账号
+message QuerySingleResponse
+{
+    Status status = 1;         // 状态
+    AccountEntity account = 2; // 账号
 }
