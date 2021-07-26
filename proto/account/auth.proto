@@ -14,8 +14,8 @@ service Auth
     rpc Signin(SigninRequest) returns (SigninResponse) { }
     // 登出
     rpc Signout(SignoutRequest) returns (SignoutResponse) { }
-    // 重置密码
-    rpc ResetPasswd(ResetPasswdRequest) returns (ResetPasswdResponse) { }
+    // 更改密码
+    rpc ChangePasswd(ChangePasswdRequest) returns (ChangePasswdResponse) { }
 }
 
 // 注册的请求
@@ -61,15 +61,16 @@ message SignoutResponse
     Status status = 1; // 状态
 }
 
-// 重置密码的请求
-message ResetPasswdRequest
+// 更改密码的请求
+message ChangePasswdRequest
 {
-    string uuid = 1;     // 用户ID
-    string password = 2; // 密码
+    Strategy strategy = 1;  // 策略
+    string accessToken = 2; // 访问令牌
+    string password = 3;    // 密码
 }
 
-// 重置密码的回复
-message ResetPasswdResponse
+// 更改密码的回复
+message ChangePasswdResponse
 {
     Status status = 1; // 状态
 }

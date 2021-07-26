@@ -42,8 +42,8 @@ type AuthService interface {
 	Signin(ctx context.Context, in *SigninRequest, opts ...client.CallOption) (*SigninResponse, error)
 	// 登出
 	Signout(ctx context.Context, in *SignoutRequest, opts ...client.CallOption) (*SignoutResponse, error)
-	// 重置密码
-	ResetPasswd(ctx context.Context, in *ResetPasswdRequest, opts ...client.CallOption) (*ResetPasswdResponse, error)
+	// 更改密码
+	ChangePasswd(ctx context.Context, in *ChangePasswdRequest, opts ...client.CallOption) (*ChangePasswdResponse, error)
 }
 
 type authService struct {
@@ -88,9 +88,9 @@ func (c *authService) Signout(ctx context.Context, in *SignoutRequest, opts ...c
 	return out, nil
 }
 
-func (c *authService) ResetPasswd(ctx context.Context, in *ResetPasswdRequest, opts ...client.CallOption) (*ResetPasswdResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.ResetPasswd", in)
-	out := new(ResetPasswdResponse)
+func (c *authService) ChangePasswd(ctx context.Context, in *ChangePasswdRequest, opts ...client.CallOption) (*ChangePasswdResponse, error) {
+	req := c.c.NewRequest(c.name, "Auth.ChangePasswd", in)
+	out := new(ChangePasswdResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -107,8 +107,8 @@ type AuthHandler interface {
 	Signin(context.Context, *SigninRequest, *SigninResponse) error
 	// 登出
 	Signout(context.Context, *SignoutRequest, *SignoutResponse) error
-	// 重置密码
-	ResetPasswd(context.Context, *ResetPasswdRequest, *ResetPasswdResponse) error
+	// 更改密码
+	ChangePasswd(context.Context, *ChangePasswdRequest, *ChangePasswdResponse) error
 }
 
 func RegisterAuthHandler(s server.Server, hdlr AuthHandler, opts ...server.HandlerOption) error {
@@ -116,7 +116,7 @@ func RegisterAuthHandler(s server.Server, hdlr AuthHandler, opts ...server.Handl
 		Signup(ctx context.Context, in *SignupRequest, out *SignupResponse) error
 		Signin(ctx context.Context, in *SigninRequest, out *SigninResponse) error
 		Signout(ctx context.Context, in *SignoutRequest, out *SignoutResponse) error
-		ResetPasswd(ctx context.Context, in *ResetPasswdRequest, out *ResetPasswdResponse) error
+		ChangePasswd(ctx context.Context, in *ChangePasswdRequest, out *ChangePasswdResponse) error
 	}
 	type Auth struct {
 		auth
@@ -141,6 +141,6 @@ func (h *authHandler) Signout(ctx context.Context, in *SignoutRequest, out *Sign
 	return h.AuthHandler.Signout(ctx, in, out)
 }
 
-func (h *authHandler) ResetPasswd(ctx context.Context, in *ResetPasswdRequest, out *ResetPasswdResponse) error {
-	return h.AuthHandler.ResetPasswd(ctx, in, out)
+func (h *authHandler) ChangePasswd(ctx context.Context, in *ChangePasswdRequest, out *ChangePasswdResponse) error {
+	return h.AuthHandler.ChangePasswd(ctx, in, out)
 }
