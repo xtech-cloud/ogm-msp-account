@@ -35,9 +35,9 @@ message SignupResponse
 // 登录的请求
 message SigninRequest
 {
-    Strategy strategy = 1; // 策略
-    string username = 2;   // 用户名
-    string password = 3;   // 密码
+    string username = 1;   // 用户名
+    string password = 2;   // 密码
+    Strategy strategy = 3; // 策略
 }
 
 // 登录的回复
@@ -51,8 +51,8 @@ message SigninResponse
 // 登出的请求
 message SignoutRequest
 {
-    Strategy strategy = 1;  // 策略
-    string accessToken = 2; // 访问令牌
+    string accessToken = 1; // 访问令牌
+    Strategy strategy = 2;  // 策略
 }
 
 // 登出的回复
@@ -64,9 +64,9 @@ message SignoutResponse
 // 更改密码的请求
 message ChangePasswdRequest
 {
-    Strategy strategy = 1;  // 策略
-    string accessToken = 2; // 访问令牌
-    string password = 3;    // 密码
+    string accessToken = 1; // 访问令牌
+    string password = 2;    // 密码
+    Strategy strategy = 3;  // 策略
 }
 
 // 更改密码的回复
