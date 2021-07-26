@@ -64,9 +64,8 @@ message SignoutResponse
 // 重置密码的请求
 message ResetPasswdRequest
 {
-    Strategy strategy = 1;  // 策略
-    string accessToken = 2; // 访问令牌
-    string password = 3;    // 密码
+    string uuid = 1;     // 用户ID
+    string password = 2; // 密码
 }
 
 // 重置密码的回复
